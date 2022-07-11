@@ -1,23 +1,27 @@
 package classe;
 
-import java.util.Scanner;
-
 public class ProdutoTeste {
 
 	public static void main(String[] args) {
 		
-		int a = 3;
-		Scanner entrada = new Scanner(System.in);
-		Produto p1 = new Produto();
-		p1.nome = "Panela";
+		Produto p1 = new Produto("Panela");
+		//p1.nome = "Panela";
 		p1.preco = 23.99;
-		p1.desconto = 0.25;
 		
-		double precoFinal = p1.preco * (1 - p1.desconto);
+		Produto p2 = new Produto();
+		p2.nome = "Bolsa";
+		p2.preco = 43.99;
+		
+		Produto.desconto = 0.3; // Mudando o desconto de todos os produtod do sistema
+		
+		double precoFinal1 = p1.precoComDesconto();
+		double precoFinal2 = p2.precoComDesconto();
 		
 		System.out.println(p1.nome);
-		System.out.println(precoFinal);
+		System.out.println(precoFinal1);
 		
-		entrada.close();
+		System.out.println(p2.nome);
+		System.out.println(precoFinal2);
+		
 	}
 }

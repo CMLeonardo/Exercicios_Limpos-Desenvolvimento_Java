@@ -15,7 +15,13 @@ public class DataTeste {
 		data2.mes = "Janeiro";
 		data2.ano = 2001;
 		
-		System.out.printf("Data 1 - %d %s %d\n", data1.dia, data1.mes, data1.ano);
-		System.out.printf("Data 2 - %d %s %d", data2.dia, data2.mes, data2.ano);
+		Data data3 = new Data();
+		
+		Data data4 = new Data(9, "Dezembro", 1972);
+		
+		System.out.println(data1.obterDataFormatada());
+		System.out.println(data2.obterDataFormatada());
+		System.out.println(data3.obterDataFormatada());
+		System.out.println(data4.obterDataFormatada());
 	}
 }
