@@ -8,15 +8,17 @@ public class Data {
 	
 	Data () {
 		// Construtor Padrão
-		dia = 1;
-		mes = "Janeiro";
-		ano = 1970;
+		// dia = 1;
+		// mes = "Janeiro";
+		// ano = 1970;
+		
+		this(1, "Janeiro", 1970);
 	}
 	
-	Data (int diaConst, String mesConst, int anoConst) {
-		dia = diaConst; //Construtor "Especial"
-		mes = mesConst;
-		ano = anoConst;
+	Data (int dia, String mes, int ano) {
+		this.dia = dia; //Construtor "Especial"
+		this.mes = mes; // "this" referencia para o objeto
+		this.ano = ano;
 	}
 	
 	String obterDataFormatada () {
