@@ -3,7 +3,7 @@ package oo.heranca.desafio;
 public class testeCarro {
 
 	public static void main(String[] args) {
-		Golf golf = new Golf();
+		Golf golf = new Golf(10);
 		Huracan huracan = new Huracan();
 		
 		System.out.println(golf);
