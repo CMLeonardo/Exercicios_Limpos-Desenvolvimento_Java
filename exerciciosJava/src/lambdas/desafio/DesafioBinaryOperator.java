@@ -1,7 +1,5 @@
 package lambdas.desafio;
 
-import java.util.function.BinaryOperator;
-import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.UnaryOperator;
 
@@ -27,28 +25,28 @@ public class DesafioBinaryOperator {
 		
 		
 		UnaryOperator<Double> impostoMunicipal = 
-				imposto -> (imposto >= 2500) ? (imposto + (imposto * 0.085)) : imposto;
+				imposto -> (imposto >= 2500) ? (imposto * 1.085) : imposto;
 				
-				System.out.printf("------------------------------------------- \n"
-						+ "Valor do Produto com o Imposto Municipal: \n\n"
-						+ "%s: %.2f \n"
-						+ "%s: %.2f \n"
-						+ "------------------------------------------- \n", 
-						iPad.nome, valorReal.andThen(impostoMunicipal).apply(iPad), 
-						iPhone.nome, valorReal.andThen(impostoMunicipal).apply(iPhone));
+		System.out.printf("------------------------------------------- \n"
+				+ "Valor do Produto com o Imposto Municipal: \n\n"
+				+ "%s: %.2f \n"
+				+ "%s: %.2f \n"
+				+ "------------------------------------------- \n", 
+				iPad.nome, valorReal.andThen(impostoMunicipal).apply(iPad), 
+				iPhone.nome, valorReal.andThen(impostoMunicipal).apply(iPhone));
 				
 		
 				
 		UnaryOperator<Double> freteEntrega = 
 				frete -> (frete >= 3000) ? frete + 100 : frete + 50;
 				
-				System.out.printf("------------------------------------------- \n"
-						+ "Valor do Produto com o Frete: \n\n"
-						+ "%s: %.2f \n"
-						+ "%s: %.2f \n"
-						+ "------------------------------------------- \n", 
-						iPad.nome, valorReal.andThen(impostoMunicipal).andThen(freteEntrega).apply(iPad), 
-						iPhone.nome, valorReal.andThen(impostoMunicipal).andThen(freteEntrega).apply(iPhone));
+		System.out.printf("------------------------------------------- \n"
+				+ "Valor do Produto com o Frete: \n\n"
+				+ "%s: %.2f \n"
+				+ "%s: %.2f \n"
+				+ "------------------------------------------- \n", 
+				iPad.nome, valorReal.andThen(impostoMunicipal).andThen(freteEntrega).apply(iPad), 
+				iPhone.nome, valorReal.andThen(impostoMunicipal).andThen(freteEntrega).apply(iPhone));
 	
 				
 				
@@ -59,5 +57,21 @@ public class DesafioBinaryOperator {
 						+ "------------------------------------------- \n", 
 						iPad.nome, valorReal.andThen(impostoMunicipal).andThen(freteEntrega).apply(iPad), 
 						iPhone.nome, valorReal.andThen(impostoMunicipal).andThen(freteEntrega).apply(iPhone));
+		
+// --------------------------------------------------- Resposta Professor -----------------------------------------------------------
+				
+		Function<Double, String> arredondar = 
+			arredondado -> String.format("%.2f", arredondado);
+		
+		UnaryOperator<String> formatar = 
+				formatado -> ("R$ " + formatado).replace(".", ",");
+		
+		
+		String preco = valorReal.andThen(impostoMunicipal).andThen(freteEntrega).andThen(arredondar).andThen(formatar).apply(iPad);
+		
+		System.out.println("------------------------------------------- \n"
+				+ "Valor Final - Resposta Professor: \n\n"
+				+ "O preco final do IPad eh " + preco + "\n"
+				+ "------------------------------------------- \n");
 	}
 }
