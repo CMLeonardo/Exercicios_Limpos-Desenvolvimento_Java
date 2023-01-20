@@ -36,14 +36,5 @@ public class DesafioFilter {
 			.filter(aprovado)
 			.map(saudacaoAprovado)
 			.forEach(System.out::println);
-		
-// --------------------------------------------------- Resposta Professor -----------------------------------------------------------
-		
-// Separa as mercadorias com frete gratis para destacar na página inicial de um site
-		
-		Produto p1 = new Produto("Lapis", 1.99, 12, 30);
-		Produto p2 = new Produto("Lapis", 1.99, 12, 30);
-		Produto p3 = new Produto("Lapis", 1.99, 12, 30);
-		Produto p4 = new Produto("Lapis", 1.99, 12, 30);
 	}
 }
